@@ -1,10 +1,32 @@
 import { motion } from "framer-motion";
 import { Heart, MapPin, Calendar, Clock } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import { Button } from "./ui/button";
 
 const EventDetails = () => {
   const openMap = () => {
     window.open("https://maps.app.goo.gl/Vc8fYtoZ9bhpfjJi8", "_blank");
+  };
+
+  const addToCalendar = () => {
+    const event = {
+      title: "Rashmi & Deepankar Engagement Celebration",
+      description: "Join us in celebrating the beautiful love story of Rashmi and Deepankar. Save the date for our engagement celebration!",
+      location: "Gymkhana Club, Sector-8, Karnal, Haryana",
+      start: "2025-11-03T11:00:00",
+      end: "2025-11-03T23:59:00",
+    };
+
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+      event.title
+    )}&dates=${event.start.replace(/[-:]/g, "")}/${event.end.replace(
+      /[-:]/g,
+      ""
+    )}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(
+      event.location
+    )}`;
+
+    window.open(googleCalendarUrl, "_blank");
   };
 
   return (
@@ -182,15 +204,27 @@ const EventDetails = () => {
               </div>
             </div>
 
-            <motion.button
-              onClick={openMap}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-xl"
-            >
-              <MapPin className="w-5 h-5" />
-              View on Map
-            </motion.button>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+              <motion.button
+                onClick={openMap}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-xl"
+              >
+                <MapPin className="w-5 h-5" />
+                View on Map
+              </motion.button>
+
+              <motion.button
+                onClick={addToCalendar}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-xl"
+              >
+                <Calendar className="w-5 h-5" />
+                Add to Calendar
+              </motion.button>
+            </div>
           </motion.div>
         </motion.div>
       </div>
