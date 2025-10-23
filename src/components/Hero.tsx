@@ -45,12 +45,21 @@ const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(/hero-section.jpeg)` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/70 via-secondary/50 to-background" />
-      </div>
+      <picture className="absolute inset-0">
+        {/* Large screens */}
+        <source media="(min-width: 1024px)" srcSet="/hero-section.jpeg" />
+        {/* Medium screens */}
+        <source media="(min-width: 768px)" srcSet="/hero-section.jpeg" />
+        {/* Small screens */}
+        <img
+          src="/hero-section.jpeg"
+          alt="Rashmi & Deepankar - Our Forever Begins"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/70 via-secondary/50 to-background" />
 
       {/* Floating Hearts */}
       {hearts.map((i) => (
