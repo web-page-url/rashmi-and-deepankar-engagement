@@ -99,7 +99,7 @@ const Navigation = () => {
               className="md:hidden border-t border-border bg-background/95 backdrop-blur-md"
             >
               <div className="px-4 py-6 space-y-4">
-                {["Our Story",  "Details", "RSVP"].map((item, index) => (
+                {["Our Story",  "Details",].map((item, index) => (
                   <motion.button
                     key={item}
                     onClick={() => scrollToSection(item.toLowerCase().replace(" ", "-"))}
