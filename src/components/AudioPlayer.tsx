@@ -186,7 +186,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, title = "" }) => {
 
 export default AudioPlayer;
 
-<style jsx>{`
+<style>{`
   .slider::-webkit-slider-thumb {
     appearance: none;
     height: 12px;
