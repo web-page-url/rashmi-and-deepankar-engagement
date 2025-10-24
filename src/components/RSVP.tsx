@@ -12,27 +12,70 @@ const RSVP = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    whatsapp: "",
     attendance: "",
     guests: "",
     message: "",
   });
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowConfetti(true);
 
-    toast({
-      title: "You're Part of Our Love Story! 💖",
-      description: "We can't wait to celebrate with you!",
-      duration: 5000,
-    });
+    console.log('RSVP Debug: Form submission started');
+    console.log('RSVP Debug: Form data:', formData);
 
-    setTimeout(() => {
-      setShowConfetti(false);
-      setFormData({ name: "", email: "", attendance: "", guests: "", message: "" });
-    }, 3000);
+    try {
+      // Google Apps Script URL - Deployed web app URL
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyai33P6gUuLZvYBc642DsP5DH3aNYuIfBTc5zP8WT0teokMdPmSDfuQqGm2YuxAnrL/exec';
+
+      // Prepare form data for submission
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('whatsapp', formData.whatsapp);
+      formDataToSend.append('attendance', formData.attendance);
+      formDataToSend.append('guests', formData.guests || '1');
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('timestamp', new Date().toISOString());
+
+      console.log('RSVP Debug: Prepared FormData for submission');
+
+
+      const response = await fetch(scriptURL, {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      console.log('RSVP Debug: Fetch response received:', response);
+      console.log('RSVP Debug: Response status:', response.status);
+      console.log('RSVP Debug: Response ok:', response.ok);
+
+      setShowConfetti(true);
+
+      toast({
+        title: "You're Part of Our Love Story! 💖",
+        description: "Thank you for your response! We can't wait to celebrate with you!",
+        duration: 5000,
+      });
+
+      console.log('RSVP Debug: Form submission successful, showing success message');
+
+      // Reset form
+      setFormData({ name: "", whatsapp: "", attendance: "", guests: "", message: "" });
+
+      setTimeout(() => {
+        setShowConfetti(false);
+      }, 3000);
+
+    } catch (error) {
+      console.error('RSVP Debug: Error submitting form:', error);
+      toast({
+        title: "Oops! Something went wrong",
+        description: "Please try again or contact us directly!",
+        variant: "destructive",
+        duration: 5000,
+      });
+    }
   };
 
   return (
@@ -99,12 +142,13 @@ const RSVP = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email Address *</Label>
+            <Label htmlFor="whatsapp">WhatsApp Number *</Label>
             <Input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              id="whatsapp"
+              type="tel"
+              value={formData.whatsapp}
+              onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+              placeholder="+91 9876543210"
               required
               className="focus:ring-primary focus:border-primary"
             />
