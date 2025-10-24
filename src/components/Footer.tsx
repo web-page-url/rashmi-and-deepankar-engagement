@@ -89,7 +89,7 @@ const Footer = () => {
             transition={{ delay: 0.6 }}
             className="text-center text-secondary-foreground/70 mt-8"
           >
-            Made with ❤️ for Deepankar & Rashmi's Forever
+            Made with ❤️ for Rashmi' & Deepankar
           </motion.p>
         </div>
       </div>
