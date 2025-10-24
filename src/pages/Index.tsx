@@ -14,7 +14,7 @@ const Index = () => {
       {/* <LoveStory /> */}
       {/* <Gallery /> */}
       <EventDetails />
-      <RSVP />
+      {/* <RSVP /> */}
       <Footer />
     </div>
   );

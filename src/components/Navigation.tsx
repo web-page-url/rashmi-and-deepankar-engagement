@@ -71,7 +71,7 @@ const Navigation = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {["Our Story",  "Details", "RSVP"].map((item, index) => (
+            {["Our Story",  "Details", ].map((item, index) => (
               <motion.button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase().replace(" ", "-"))}
