@@ -40,7 +40,7 @@ const EventDetails = () => {
           transition={{ duration: 0.8 }}
           className="mb-12"
         >
-          <Carousel className="w-full max-w-2xl mx-auto">
+          <Carousel className="w-full max-w-2xl mx-auto" opts={{ loop: true }}>
             <CarouselContent>
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl">
