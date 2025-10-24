@@ -87,7 +87,7 @@ const Hero = () => {
       ))}
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 py-8">
+      <div className="relative z-10 text-center px-4 pt-24 pb-8 md:pt-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
