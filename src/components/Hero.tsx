@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import AudioPlayer from "./AudioPlayer";
 
 const Hero = () => {
   const weddingDate = new Date(2025, 10, 3, 11, 0, 0); // November 3, 2025 at 11:00 AM
@@ -153,6 +154,12 @@ const Hero = () => {
             >
               View Details
             </Button>
+
+            {/* Audio Player */}
+            <AudioPlayer
+              src="/tumko-paya-hai-toh.mp3"
+              // title="Play Music"
+            />
           </motion.div>
         </motion.div>
       </div>

@@ -11,13 +11,15 @@ A beautiful, modern wedding website with integrated Google Sheets RSVP managemen
 - **Responsive Design**: Perfect on all devices (mobile, tablet, desktop)
 - **Smooth Animations**: Framer Motion animations throughout
 - **Modern UI**: Clean, professional interface with gradients and shadows
+- **Audio Player**: Custom wedding music player with full controls
 
 ### 📱 **User Experience**
 - **Interactive Hero**: Animated countdown to the wedding date
+- **Audio Player**: Triple-mode music experience - full seek controls + floating button on all devices
 - **Photo Gallery**: 5 beautiful couple photos in a carousel
 - **Event Details**: Complete wedding information with map integration
 - **RSVP Form**: Easy guest response system
-- **Mobile-First**: Optimized for touch devices
+- **Mobile-First**: Optimized for touch devices with touch-friendly controls
 
 ### 🔧 **Technical Features**
 - **Google Sheets Integration**: Automatic RSVP data collection
@@ -38,7 +40,8 @@ A beautiful, modern wedding website with integrated Google Sheets RSVP managemen
 ```
 Frontend (React + TypeScript)
 ├── Components
-│   ├── Hero - Animated countdown & couple intro
+│   ├── Hero - Animated countdown & couple intro + Audio Player
+│   ├── AudioPlayer - Custom music player with full controls
 │   ├── Navigation - Mobile-responsive menu
 │   ├── EventDetails - Photo carousel & wedding info
 │   ├── RSVP - Google Sheets integrated form
@@ -81,8 +84,8 @@ Backend (Google Apps Script)
 
 3. **Start development server**
    ```bash
-   npm run dev
-   ```
+npm run dev
+```
 
 4. **Open** `http://localhost:5173`
 
@@ -213,7 +216,8 @@ Success Msg  POST Request  Data Parsing  Data Stored
 2. **Date**: Change in Hero.tsx and Apps Script
 3. **Venue**: Update in EventDetails.tsx
 4. **Images**: Replace in `/public/` folder
-5. **Messages**: Customize toast messages
+5. **Audio**: Replace `tumko-paya-hai-toh.mp3` in `/public/` folder
+6. **Messages**: Customize toast messages
 
 ### Adding New Features
 1. **New Form Fields**: Update both React form and Apps Script
@@ -247,6 +251,7 @@ Success Msg  POST Request  Data Parsing  Data Stored
 - **Tailwind CSS** - Utility-first styling
 - **Framer Motion** - Animations
 - **React Hook Form** - Form management
+- **HTML5 Audio API** - Custom audio player
 - **Lucide Icons** - Beautiful icons
 
 ### Backend
@@ -337,6 +342,20 @@ This wedding website provides:
 - ✅ **Performance Optimized** for fast loading
 
 **Perfect for creating memorable wedding experiences!** 💕✨
+
+## 🎵 **Audio Player Features**
+
+- **Triple-Mode Experience** - Full seek controls + floating button on all devices
+- **Always Accessible** - Fixed floating play/pause button positioned above chatbot for easy access
+- **Smart UI Elements** - Chatbot close button only appears when chat is open, clean interface when closed
+- **Full Seek Controls** - Progress bar, time display, and seek functionality on all devices
+- **Mobile-First Design** - Touch-optimized controls with larger slider for mobile
+- **Play/Pause Controls** with loading states and smooth animations
+- **Elegant Visual Design** - Glass-morphism backdrop, rose/pink gradients, and sophisticated styling
+- **Romantic Theme** - Wedding-appropriate colors with rose and pink gradients
+- **Enhanced UI Elements** - Rounded containers, shadows, and hover effects
+- **Universal Layout** - Consistent experience across mobile, tablet, and desktop
+- **Smooth Animations** - Appears with elegant scale-in effect
 
 ---
 

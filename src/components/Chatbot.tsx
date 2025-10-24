@@ -172,24 +172,28 @@ User query: ${prompt}`;
         animate={{ scale: 1 }}
         exit={{ scale: 0 }}
       >
-        {/* Close Arrow */}
-        <motion.button
-          className={`w-8 h-8 rounded-full shadow-lg backdrop-blur-md border transition-all duration-300 ${
-            isDark
-              ? 'bg-secondary/90 border-secondary/50 text-secondary-foreground hover:bg-secondary'
-              : 'bg-background/90 border-border/50 text-foreground hover:bg-accent'
-          }`}
-          onClick={() => setIsOpen(false)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          animate={{
-            rotate: isOpen ? 180 : 0,
-          }}
-          transition={{ duration: 0.3 }}
-          aria-label="Close LoveBot chat"
-        >
-          <X className="w-4 h-4 mx-auto" aria-hidden="true" />
-        </motion.button>
+        {/* Close Arrow - Only show when chat is open */}
+        {isOpen && (
+          <motion.button
+            className={`w-8 h-8 rounded-full shadow-lg backdrop-blur-md border transition-all duration-300 ${
+              isDark
+                ? 'bg-secondary/90 border-secondary/50 text-secondary-foreground hover:bg-secondary'
+                : 'bg-background/90 border-border/50 text-foreground hover:bg-accent'
+            }`}
+            onClick={() => setIsOpen(false)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            animate={{
+              rotate: 180,
+            }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            aria-label="Close LoveBot chat"
+          >
+            <X className="w-4 h-4 mx-auto" aria-hidden="true" />
+          </motion.button>
+        )}
 
         {/* Main Chat Button */}
         <motion.button
