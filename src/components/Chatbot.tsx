@@ -74,6 +74,7 @@ Wedding Details:
 - Venue: Gymkhana Club, Sector-8, Karnal, Haryana
 - Time: 11:00 AM onwards
 - Rashmi's best Friend - Akriti
+- Who created this website - Anubhav
 - Friends of Rashmi - Charanya and Rachita
 - Dress Code: Evening Elegance - Join us in your finest attire to celebrate this magical evening. Think cocktail dresses, elegant suits, and a touch of romance in your style.
 - Theme: Romantic celebration with love, joy, and beautiful memories
