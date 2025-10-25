@@ -30,8 +30,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, title = "" }) => {
     };
 
     const handleEnded = () => {
-      setIsPlaying(false);
+      // Restart the audio automatically when it ends
+      audio.currentTime = 0;
       setCurrentTime(0);
+      audio.play().catch(error => {
+        console.error('Auto-restart failed:', error);
+        setIsPlaying(false);
+      });
+      setIsPlaying(true);
     };
 
     const handleError = () => {
